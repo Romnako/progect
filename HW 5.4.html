@@ -1,0 +1,67 @@
+<!-- 1. Задание. Отследите когда все теги будут добавлены на страницу (событие
+    DOMContentLoaded) и выведите alert'ом сообщение: "все теги добавлены на страницу". -->
+
+<!--2. Задание. Дождитесь когда все картинки загрузятся (событие load) и
+    покажите с помощью alert сообщение: "все картинки загружены". -->
+
+
+<!--3. Задание. Сделайте, чтобы по клику по кнопке с классом .btn появлялся
+    alert('клик') -->
+
+<!--4. Задание. Сделайте, чтобы при наведении на textarea в консоли
+    появлялось сообщение: "вы указали на textarea" -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://placeimg.com/1000/1000/animals" alt="">
+    <img src="https://placeimg.com/1000/1000/arch" alt="">
+    <img src="https://placeimg.com/1000/1000/nature" alt="">
+    <img src="https://placeimg.com/1000/1000/people" alt="">
+    <img src="https://placeimg.com/1000/1000/tech" alt="">
+    <img src="https://placeimg.com/1000/1000/tech/grayscale" alt="">
+    <img src="https://placeimg.com/1000/1000/tech/sepia" alt="">
+    
+    <br>
+    <button>Кнопка</button>
+    <button class="btn">Кнопка с классом btn</button>
+    <button>Кнопка</button>
+
+    <br>
+    <textarea></textarea>
+
+    <script>
+        'use strict';
+
+        document.addEventListener('DOMContentLoaded', function () {   //1
+            alert("все теги добавлены на страницу");
+        });
+
+        window.addEventListener('load', function () {                 //2
+            alert("все картинки загружены");
+        });
+
+        let btn = document.querySelector('.btn');                     //3
+        btn.addEventListener('click', function () {
+            alert('клик');
+        });
+
+        let textarea = document.querySelector('textarea');            //4
+        textarea.addEventListener('mouseover', function () {
+            console.log("вы указали на textarea");
+        });
+
+
+    </script>
+</body>
+</html>
