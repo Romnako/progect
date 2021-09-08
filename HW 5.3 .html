@@ -1,0 +1,106 @@
+<!--1.  Задание. Найдите тег ul. И добавьте ему класс one. -->
+
+<!--2. Задание. Найдите элемент с классом .nav-link и используя метод toggle из свойства classList
+    у элемента, добавьте или уберите класс .active. -->
+
+<!--3. Задание. Найдите элемент с классом .dropdown-menu и удалите этот класс, используя свойство
+    classList у элемента, и метод remove(). -->
+
+<!--4. Задание. Добавьте в div с классом .menu следующую разметку:
+    <a href="#">link</a>
+    используя метод insertAdjacentHTML.-->
+
+<!--5. Задание. Выведите в консоль значение атрибутов data-dismiss
+    и aria-label с помощью метода getAttribute. -->
+
+<!--6. Задание. Добавьте заголовку атрибут data-one="один" и атрибут
+    data-two="два" с помощью метода setAttribute. -->
+
+ <!--7. Задание. найдите заголовок с id="title" и замените значение id
+    на что-то другое. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>list item</li>
+        <li>list item</li>
+        <li>list item</li>
+        <li>list item</li>
+    </ul>
+
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+        </li>
+    </ul>
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+        </button>
+        <div class="menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div>
+
+    <div class="menu"></div>
+
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <h1>Заголовок</h1>
+
+    <article>
+        <h2>title</h2>
+        text
+    </article>
+    <article>
+        <h2 id="title">title</h2>
+        text
+    </article>
+
+
+    <script>
+        'use strict';
+        let ul = document.querySelector('ul');//1
+        ul.classList.add('one');
+
+        let navLinkEl = document.querySelector('.nav-link');//2
+        navLinkEl.classList.toggle('active');
+
+        let menuEl = document.querySelector('.dropdown-menu');//3
+        menuEl.classList.remove('dropdown-menu');
+
+        let div = document.querySelector('.menu');//4
+        div.insertAdjacentHTML('afterbegin', '<a href="#">link</a><br>');
+
+        let button = document.querySelector('button');//5
+        console.log(button)
+        console.log(button.getAttribute('data-dismiss'));
+        console.log(button.getAttribute('aria-label'));
+
+        let h1 = document.querySelector('h1');//6
+        h1.setAttribute('data-one', 'один');
+        h1.setAttribute('data-two', 'два');
+        console.log(h1);
+
+        let header = document.getElementById('title');//7
+        header.id = 'newValue';
+        console.log(header);
+
+    </script>
+</body>
+
+</html>

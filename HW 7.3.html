@@ -1,0 +1,90 @@
+<!-- Задание. Нужно сделать, чтобы при кликах по .nav-link:
+    1. Класс active назначался тому .nav-link, по которому кликнули, а у предыдущего
+    .nav-link, чтобы этот класс убирался.
+    2. В зависимости от того по какому .nav-link кликнули нужно чтобы менялся текст
+    в .text, соответствующие тексты вы найдете в app.js-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <style>
+        .nav {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Link 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link 3</a>
+            </li>
+        </ul>
+
+        <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+    </div>
+
+
+    <script>
+        'use strict';
+        const texts = {
+            text1: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+            text2: 'Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.',
+            text3: 'Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил.'
+        };
+
+        let textEl = document.querySelector('.text');          //ссылка на текст
+
+        let navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(function (link) {
+            link.addEventListener('click', clickHandler);
+        });
+
+        //Функция обработки клика.
+        function clickHandler(event) {
+            // event - объект события.
+            changeText(event);
+            changeActiveClass(event);
+        }
+
+        //Функция следующего клика
+        function changeActiveClass(event) {
+            document.querySelector('.active').classList.remove('active');
+            event.target.classList.add('active');
+        }
+
+        //Функция чтения текста
+        function changeText(event) {
+            switch (event.target.textContent) {
+                case "Link 1":
+                    textEl.textContent = texts.text1;
+                    break;
+                case "Link 2":
+                    textEl.textContent = texts.text2;
+                    break;
+                case "Link 3":
+                    textEl.textContent = texts.text3;
+                    break;
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

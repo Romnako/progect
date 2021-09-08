@@ -1,0 +1,169 @@
+<!--1.  Задание. 
+    1. Сохраните в переменную коллекцию с картинками.
+    2. Пробегитесь по этой коллекции с помощью цикла или forEach
+    и выведите каждую картинку в консоль. Выведите в консоль только
+	элементы коллекции, не нужно пытаться сделать, чтобы в консоли
+	появилось изображение. -->
+
+<!--2. Задание.
+    1. Сохраните в переменную коллекцию элементов с классом one. Для получения
+    элементов используйте метод. getElementsByClassName() 
+    2. С помощью цикла переберите эту коллекцию и выведите в консоль название тега.-->
+
+<!-- 3. Задание.
+    1. Сохраните в переменную коллекцию с тегами h2, используйте метод getElementsByTagName()
+    2. Пробегитесь по этой коллекции с помощью цикла и выведите в консоль значение
+    атрибута class, используя свойство className.-->
+
+<!--4. Задание.
+    1. Сохраните в переменную тег div.
+    2. Создайте переменную classes, и в нее сохраните значение свойства classList.
+    3. C помощью forEach переберите classes и выведите каждый класс в консоль.-->
+
+<!--5. Задание.
+    1. Вам нужно получить этот div.
+    2. Затем обратитесь к списку классов и с помощью метода contains()
+    проверьте есть ли класс hidden у этого тега.-->
+
+<!--6. Задание.
+    1. Найдите все "карточки" с классом .card.
+    2. Проверьте есть ли у карточки класс hidden с помощью метода contains(),
+    и если есть, то удалите с помощью метода remove(). -->
+
+<!--7. Задание.
+    1. Получите все ссылки.
+    2. Проверьте, есть ли в ссылке текст "ссылка", и если нет, то добавьте. -->
+
+<!-- 8. Задание.
+    1. Получите все теги b.
+    2. С помощью метода contains() из classList, проверьте, есть ли у тега
+    класс sign, и если нет, то тогда добавьте с помощью метода add()
+    -->
+
+<!--9. Задание.
+    1. Получите коллекцию тегов i.
+    2. Пробегитесь по этой коллекции и с помощью classList.toggle() сделайте,
+    чтобы где класс green есть, его не стало, а где нету, чтобы появился.
+    -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="https://placeimg.com/100/100/animals" alt="">
+    <img src="https://placeimg.com/100/100/arch" alt="">
+    <img src="https://placeimg.com/100/100/people" alt="">
+
+    <h3 class="one">Заголовок</h3>
+    <a class="one" href="#">ссылка</a>
+    <p class="one">параграф</p>
+
+    <h2 class="one lorem">Заголовок 1</h2>
+    <h2 class="two ipsum">Заголовок 2</h2>
+    <h2 class="three">Заголовок 3</h2>
+
+    <div class="one two three"></div>
+
+    <div class="card hidden">
+        Lorem ipsum dolor sit.
+    </div>
+    <div class="card">
+        Lorem ipsum dolor sit.
+    </div>
+    <div class="card hidden">
+        Lorem ipsum dolor sit.
+    </div>
+    <div class="card">
+        Lorem ipsum dolor sit.
+    </div>
+
+    <a href="#">ссылка</a>
+    <a href="#"></a>
+    <a href="#">ссылка</a>
+    <a href="#"></a>
+
+    <br>
+
+    <b>Lorem, ipsum.</b>      
+    <b class="sign">Lorem, ipsum.</b>
+    <b class="sign">Lorem, ipsum.</b>
+    <b>Lorem, ipsum.</b>
+
+    <br>
+
+    <i class="green">тут текст НЕ должен быть зеленым</i>
+    <i>здесь текст сделайте зеленым</i>
+    <i class="green">тут текст НЕ должен быть зеленым</i>
+    <i>здесь текст сделайте зеленым</i>
+
+
+
+
+    <script>
+        'use strict';
+
+        let images = document.querySelectorAll('img');       //1
+        images.forEach(function (image) {
+            console.log(image);
+        });
+
+        let ones = document.getElementsByClassName('one');    //2
+        for (let i = 0; i < ones.length; i++) {
+            console.log(ones[i].tagName);
+        }
+
+        let h2Elems = document.getElementsByTagName('h2');     //3
+        for (let i = 0; i < h2Elems.length; i++) {
+            console.log(h2Elems[i].className);
+        }
+
+        let div = document.querySelector('div');              //4
+        let classes = div.classList;
+        classes.forEach(function (clas) {
+            console.log(clas);
+        });
+
+        //let div = document.querySelector('div');
+        console.log(div.classList.contains('three'));         //5
+
+        let cards = document.querySelectorAll('.card');       //6
+        cards.forEach(function (card) {
+            if (card.classList.contains('hidden')) {
+                card.classList.remove('hidden');
+            }
+        });
+
+        for (let i = 0; i < document.links.length; i++) {    //7
+            if (document.links[i].innerText !== 'ссылка') {
+                document.links[i].innerText = 'ссылка';
+            }
+        }
+
+        let bElems = document.querySelectorAll('b');         //8
+        bElems.forEach(function (b) {
+            if (!b.classList.contains('sign')) {
+                b.classList.add('sign');
+            }
+        });
+
+        let iElems = document.querySelectorAll('i');        //9
+        iElems.forEach(function (i) {
+            i.classList.toggle('green');
+        });
+
+    </script>
+</body>
+
+</html>

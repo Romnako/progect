@@ -1,0 +1,70 @@
+<!--1. Задание.
+        Используя цикл for in переберите объект products, ведите в консоль
+        имя свойства, значение свойства.-->
+
+<!--2. Задание. 
+         С помощью innerHTML очистите содержимое параграфа.-->
+
+<!--3. Задание.
+        Дописывайте в строку totalString с помощью цикла и конкатенации строки,
+        так, чтобы итоговое значение в totalString получилось: слово1слово2слово3-->
+
+<!--4. Задание.
+        <a href="https://picsum.photos/200/300" target="_blank">ссылка</a>
+        С помощью insertAdjacentHTML добавьте в body ссылку по примеру из комментария выше.
+        При создании разметки используйте шаблонный литерал. Данные для ссылки ниже.-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>
+        Lorem ipsum dolor.
+    </p>
+
+    <script>
+        'user strict'
+        const products = {
+            one: "один",
+            two: "два",
+            three: "три",
+        };
+
+
+        for (let prop in products) {                    //1
+            console.log(prop);
+            console.log(products[prop]);
+        }
+
+
+        let p = document.querySelector('p');            //2
+        p.innerHTML = '';
+
+
+        let totalString = "";                           //3
+        for (let i = 1; i <= 3; i++) {
+            totalString += `слово${i}`;
+        }
+        console.log(totalString);
+
+
+        let url = "https://picsum.photos/200/300";      //4
+        let targetAttr = "_blank";
+        let linkText = "ссылка";
+
+        document.body.insertAdjacentHTML('afterbegin', `<a href="${url}" target="${targetAttr}">${linkText}</a>`);
+
+
+    </script>
+
+    </script>
+</body>
+
+</html>
