@@ -1,0 +1,71 @@
+<!--1. Задание. Нужно при клике на кнопку выводить в консоль значения ее
+            data- атрибутов.
+            1. Получите все кнопки например с помощью querySelectorAll
+            2. Переберите полученную коллекцию, например с помощью forEach
+                2.1 data- атрибуты можете читать например с помощью свойства dataset
+                у каждой кнопки-->
+
+<!--2. Задание.
+        С помощью цилка for добавьте в body 6 картинок, по примеру тех, что закомментированы
+        выше. Картинки вставляйте со помощью insertAdjacentHTML. При генерации разметки
+        пользуйтесь шаблонным литералом. Куда должен вставляться счетчик цилка смотрите
+        ниже:
+        <img src="https://picsum.photos/200/300?random=${счетчик_цикла_здесь}" alt="pic${счетчик_цикла_здесь}">-->
+
+<!--3. Задание. Нужно чтобы при смещении ползунка в div менялся размер шрифта.
+            1. Получите ссылку на input.
+            2. Получите ссылку на div.
+            3. Input'у поставьте прослушивание события 'input';
+                3.1 У функции-обработчика определите параметр event.
+                3.2 Значение input'а читайте из event.target.value.-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <br>
+    <button data-id="1" data-value="btn1">Кнопка 1</button>
+    <button data-id="2" data-value="btn2">Кнопка 2</button>
+    <button data-id="3" data-value="btn3">Кнопка 3</button>
+    <br>
+
+    <input type="range" min="20" max="100">
+    <div>
+        Lorem ipsum dolor.
+    </div>
+
+    <script>
+        'use strict'
+        let buttons = document.querySelectorAll('button');                                       //1
+        buttons.forEach(function (button) {
+            button.addEventListener('click', function (event) {
+                //console.log(event.target.dataset.id);
+                console.log(event.target.dataset.value);
+            });
+        });
+
+        for (let i = 0; i < 3; i++) {
+            let markup = `<img src="https://picsum.photos/200/300?random=${i}" alt="pic${i}">`;   //2
+            document.body.insertAdjacentHTML('afterbegin', markup);
+        }
+
+
+        let inputEl = document.querySelector('input');                                            //3
+        let divEl = document.querySelector('div');
+        inputEl.addEventListener('input', function (event) {
+            divEl.style.fontSize = event.target.value + 'px';
+        });
+
+
+
+    </script>
+</body>
+
+</html>
